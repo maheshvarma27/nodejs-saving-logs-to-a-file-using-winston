@@ -1,0 +1,17 @@
+
+// to run this app type
+    nodemon bin/www
+
+//this app is developed by reading/reference the article
+    https://www.digitalocean.com/community/tutorials/how-to-use-winston-to-log-node-js-applications
+
+// an error in winston.js can be solved by replacing with the below code
+
+let logger = winston.createLogger({
+  transports: [
+    new (winston.transports.Console)(options.console),
+    new (winston.transports.File)(options.errorFile),
+    new (winston.transports.File)(options.file)
+  ],
+  exitOnError: false, // do not exit on handled exceptions
+});
